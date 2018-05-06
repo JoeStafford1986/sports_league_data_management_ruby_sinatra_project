@@ -22,3 +22,6 @@ game1 = Game.new({
 })
 
 game1.save()
+
+binding.pry
+nil

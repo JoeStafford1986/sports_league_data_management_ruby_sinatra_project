@@ -18,4 +18,18 @@ class Team
     @id = results.first()['id'].to_i
   end
 
+  def self.all()
+  sql = "SELECT * FROM teams"
+  results = SqlRunner.run( sql )
+  return results.map { |team| Team.new( team ) }
+end
+
+def self.find( id )
+  sql = "SELECT * FROM teams
+  WHERE id = $1"
+  values = [id]
+  results = SqlRunner.run( sql, values )
+  return Team.new( results.first )
+end
+
 end
