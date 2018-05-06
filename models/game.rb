@@ -20,4 +20,18 @@ class Game
     @id = results.first()['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM games"
+    results = SqlRunner.run( sql )
+    return results.map { |game| Game.new( game ) }
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM games
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run( sql, values )
+    return Game.new( results.first )
+  end
+
 end
