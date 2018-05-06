@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 
 class Team
 
-  attr_reader( :name, :id )
+  attr_reader( :id )
+  attr_accessor( :name )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -30,6 +31,11 @@ class Team
     values = [id]
     results = SqlRunner.run( sql, values )
     return Team.new( results.first )
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM teams;"
+    SqlRunner.run(sql)
   end
 
 end

@@ -3,6 +3,9 @@ require_relative( "../models/game.rb" )
 
 require("pry-byebug")
 
+Game.delete_all()
+Team.delete_all()
+
 team1 = Team.new({
   "name" => "Orcs",
 })
@@ -30,7 +33,7 @@ team4.save()
 game1 = Game.new({
   "team1_id" => team1.id,
   "team2_id" => team2.id,
-  "outcome" => "#{team1.name} win!"
+  "outcome" => "Orcs win!"
 })
 
 game1.save()
@@ -38,7 +41,7 @@ game1.save()
 game2 = Game.new({
   "team1_id" => team3.id,
   "team2_id" => team2.id,
-  "outcome" => "#{team3.name} win!"
+  "outcome" => "Dwarves win!"
 })
 
 game2.save()
@@ -46,7 +49,7 @@ game2.save()
 game3 = Game.new({
   "team1_id" => team3.id,
   "team2_id" => team4.id,
-  "outcome" => "#{team3.name} win!"
+  "outcome" => "Elves win!"
 })
 
 game3.save()

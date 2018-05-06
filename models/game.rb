@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 
 class Game
 
-  attr_reader( :id, :team1_id, :team2_id, :outcome )
+  attr_reader( :id)
+  attr_accessor( :team1_id, :team2_id, :outcome )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -32,6 +33,11 @@ class Game
     values = [id]
     results = SqlRunner.run( sql, values )
     return Game.new( results.first )
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM games;"
+    SqlRunner.run(sql)
   end
 
 end
