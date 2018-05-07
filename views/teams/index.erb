@@ -1,9 +1,7 @@
 <% for team in @teams %>
   <p>Team Name: <%= team.name%> </p>
 
-  <form method="get" action="/teams/<%=team.id%>">
-    <input type="submit" value="Show Team Info">
-  </form>
+  <a href="/teams/<%= team.id  %>">Show Team</a>
 
   <hr/>
 <%end  %>
