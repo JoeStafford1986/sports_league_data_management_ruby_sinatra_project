@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 
 class Team
 
-  attr_reader( :id, :name)
+  attr_reader( :id )
+  attr_accessor( :name )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -23,6 +24,14 @@ class Team
     WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, values )
+  end
+
+  def update()
+    sql = "UPDATE teams
+    SET name = $1
+    WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
   end
 
   def self.all()

@@ -12,3 +12,14 @@ get '/teams/:id' do
   @team = Team.find(params[:id])
   erb(:"teams/show")
 end
+
+get '/teams/:id/edit' do
+  @team = Team.find(params[:id])
+  erb(:"teams/edit")
+end
+
+post '/teams/:id/edit' do
+  @team = Team.new(params)
+  @team.update()
+  redirect '/'
+end
