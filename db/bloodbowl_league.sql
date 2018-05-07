@@ -10,7 +10,7 @@ CREATE TABLE teams
 CREATE TABLE games
 (
   id SERIAL4 primary key,
-  team1_id INT4 references teams(id),
-  team2_id INT4 references teams(id),
+  team1_id INT4 references teams(id) ON DELETE CASCADE,
+  team2_id INT4 references teams(id) ON DELETE CASCADE,
   outcome VARCHAR(255) -- proper results need their own table
 );
