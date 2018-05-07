@@ -12,5 +12,5 @@ CREATE TABLE games
   id SERIAL4 primary key,
   team1_id INT4 references teams(id),
   team2_id INT4 references teams(id),
-  outcome VARCHAR(255)
+  outcome VARCHAR(255) -- proper results need their own table
 );

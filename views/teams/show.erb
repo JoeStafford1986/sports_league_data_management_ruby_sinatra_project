@@ -2,4 +2,4 @@
 
 <a href="/teams/<%= @team.id %>/edit">Edit Team</a>
 
-<a href="/teams/<%= @team.id  %>/delete">Delete Team</a>
+<form action="/teams/<%= @team.id  %>/delete" method="post"> <input type="submit" name="Delete" value="Delete Result">

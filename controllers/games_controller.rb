@@ -39,3 +39,10 @@ post '/games/:id/edit' do
   game.update()
   redirect '/'
 end
+
+#deletes game
+post '/games/:id/delete' do
+  game = Game.find(params[:id])
+  game.delete()
+  redirect '/'
+end

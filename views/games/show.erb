@@ -4,4 +4,6 @@
 
 <a href="/games/<%= @game.id %>/edit">Edit Game</a>
 
-<a href="/games/<%= @game.id  %>/delete">Delete Game</a>
+<form action="/games/<%= @game.id  %>/delete" method="post"> <input type="submit" name="Delete" value="Delete Result">
+
+</form>

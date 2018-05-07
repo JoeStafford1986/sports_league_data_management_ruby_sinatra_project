@@ -41,3 +41,10 @@ post '/teams/:id/edit' do
   team.update()
   redirect '/'
 end
+
+#delete team
+post '/teams/:id/delete' do
+  team = Team.find(params[:id])
+  team.delete()
+  redirect '/'
+end
