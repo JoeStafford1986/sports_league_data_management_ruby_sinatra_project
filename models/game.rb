@@ -36,6 +36,14 @@ class Game
     SqlRunner.run(sql, values)
   end
 
+  def team1()
+    return Team.find(team1_id)
+  end
+
+  def team2()
+    return Team.find(team2_id)
+  end
+
   def self.all()
     sql = "SELECT * FROM games"
     results = SqlRunner.run( sql )

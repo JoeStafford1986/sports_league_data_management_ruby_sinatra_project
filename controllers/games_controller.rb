@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry' )
 require_relative( '../models/game.rb' )
+require_relative( '../models/team.rb' )
 
 #show all games
 get '/games' do
@@ -24,6 +25,11 @@ end
 #show singular game
 get '/games/:id' do
   @game = Game.find(params[:id])
+  @team1 = @game.team1
+  @team2 = @game.team2
+
+  # @team1 = Team.new(team1_data)
+  # @team2 = Team.new(team2_data)
   erb(:"games/show")
 end
 
