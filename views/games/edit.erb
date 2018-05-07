@@ -1,0 +1,15 @@
+<p>Team 1 ID: <%= @game.team1_id %> </p>
+<p>Team 2 ID: <%= @game.team2_id %> </p>
+<p>Outcome: <%= @game.outcome %> </p>
+
+<form method="post" action="/games/<%=@game.id%>/edit">
+  <label for="team1_id">Team 1:</label>
+  <input type="text" name="team1_id" id="team1_id" value=" <%=  @game.team1_id %>">
+  <label for="team2_id">Team 2:</label>
+  <input type="text" name="team2_id" id="team2_id" value=" <%=  @game.team2_id %>">
+  <label for="Outcome">Outcome:</label>
+  <input type="text" name="outcome" id="outcome" value=" <%=  @game.outcome %>">
+
+  <input type="submit"  value="Edit Game">
+
+</form>
