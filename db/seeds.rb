@@ -53,6 +53,3 @@ game3 = Game.new({
 })
 
 game3.save()
-
-binding.pry
-nil
