@@ -9,6 +9,11 @@ get '/games' do
   erb ( :"games/index" )
 end
 
+#go to form to add game
+get '/games/new' do
+  erb(:"games/new")
+end
+
 #show singular game
 
 get '/games/:id' do
