@@ -12,10 +12,6 @@ class Game
     @outcome = options['outcome']
   end
 
-  # def team_1()
-
-  # end
-
   def save()
     sql = "INSERT INTO games(team1_id, team2_id, outcome)
     VALUES ($1, $2, $3)
