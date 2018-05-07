@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('game')
 
 class Team
 
@@ -32,6 +33,16 @@ class Team
     WHERE id = $2"
     values = [@name, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def games()
+    sql = "SELECT * FROM games
+    WHERE team1_id = $1
+    OR team2_id = $1"
+    values = [@id]
+    games_data = SqlRunner.run(sql, values)
+    games = games_data.map { |game| Game.new( game ) }
+    return games
   end
 
   def self.all()

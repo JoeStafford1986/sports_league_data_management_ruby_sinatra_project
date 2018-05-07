@@ -4,3 +4,9 @@
 
 <form action="/teams/<%= @team.id  %>/delete" method="post"> <input type="submit" name="Delete" value="Delete Team">
 </form>
+
+<hr>
+
+<% for game in @games  %>
+<p> <%= game.outcome  %> </p>
+<% end  %>

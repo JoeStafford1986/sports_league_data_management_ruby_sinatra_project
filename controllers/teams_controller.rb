@@ -26,6 +26,7 @@ end
 #show singular team
 get '/teams/:id' do
   @team = Team.find(params[:id])
+  @games = @team.games()
   erb(:"teams/show")
 end
 
