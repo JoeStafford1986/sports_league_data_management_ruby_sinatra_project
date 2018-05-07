@@ -22,3 +22,11 @@ get '/games/:id/edit' do
   @game = Game.find(params[:id])
   erb(:"games/edit")
 end
+
+#run update on edited game
+
+post '/games/:id/edit' do
+  game = Game.new(params)
+  game.update()
+  redirect '/'
+end
