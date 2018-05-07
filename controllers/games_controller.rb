@@ -14,6 +14,13 @@ get '/games/new' do
   erb(:"games/new")
 end
 
+#add new game
+post '/games' do
+  @game = Game.new(params)
+  @game.save()
+  redirect '/'
+end
+
 #show singular game
 
 get '/games/:id' do
