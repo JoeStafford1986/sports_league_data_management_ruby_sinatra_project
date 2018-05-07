@@ -22,21 +22,18 @@ post '/games' do
 end
 
 #show singular game
-
 get '/games/:id' do
   @game = Game.find(params[:id])
   erb(:"games/show")
 end
 
 #go to edit form
-
 get '/games/:id/edit' do
   @game = Game.find(params[:id])
   erb(:"games/edit")
 end
 
 #run update on edited game
-
 post '/games/:id/edit' do
   game = Game.new(params)
   game.update()
