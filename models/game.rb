@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 
 class Game
 
-  attr_reader( :id, :team1_id, :team2_id, :outcome)
+  attr_reader( :id )
+  attr_accessor( :team1_id, :team2_id, :outcome )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -25,6 +26,14 @@ class Game
     WHERE id = $1"
     values = [@id]
     SqlRunner.run( sql, values )
+  end
+
+  def update()
+    sql = "UPDATE games
+    SET (team1_id, team2_id, outcome) = ($1, $2, $3)
+    WHERE id = $4"
+    values = [@team1_id, @team2_id, @outcome, @id]
+    SqlRunner.run(sql, values)
   end
 
   def self.all()
