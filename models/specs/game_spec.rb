@@ -24,7 +24,9 @@ class GameTest < MiniTest::Test
     @game1 = Game.new({
       "team1_id" => @team1.id,
       "team2_id" => @team2.id,
-      "outcome" => "Orcs win!"
+      "outcome" => "Orcs win!",
+      "team1_score" => 0,
+      "team2_score" => 1
     })
 
     @game1.save()

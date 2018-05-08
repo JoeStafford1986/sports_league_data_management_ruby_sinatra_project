@@ -3,13 +3,15 @@ require_relative('../db/sql_runner')
 class Game
 
   attr_reader( :id )
-  attr_accessor( :team1_id, :team2_id, :outcome )
+  attr_accessor( :team1_id, :team2_id, :outcome, :team1_score, :team2_score )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @team1_id = options['team1_id'].to_i
     @team2_id = options['team2_id'].to_i
     @outcome = options['outcome']
+    @team1_score = options['team1_score']
+    @team2_score = options['team2_score']
   end
 
   def team1()
@@ -21,10 +23,10 @@ class Game
   end
 
   def save()
-    sql = "INSERT INTO games(team1_id, team2_id, outcome)
-    VALUES ($1, $2, $3)
+    sql = "INSERT INTO games(team1_id, team2_id, outcome, team1_score, team2_score)
+    VALUES ($1, $2, $3, $4, $5)
     RETURNING id"
-    values = [@team1_id, @team2_id, @outcome]
+    values = [@team1_id, @team2_id, @outcome, @team1_score, @team2_score]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -38,9 +40,9 @@ class Game
 
   def update()
     sql = "UPDATE games
-    SET (team1_id, team2_id, outcome) = ($1, $2, $3)
-    WHERE id = $4"
-    values = [@team1_id, @team2_id, @outcome, @id]
+    SET (team1_id, team2_id, outcome, team1_score, team2_score) = ($1, $2, $3, $4, $5)
+    WHERE id = $6"
+    values = [@team1_id, @team2_id, @outcome, @team1_score, @team2_score, @id]
     SqlRunner.run(sql, values)
   end
 
