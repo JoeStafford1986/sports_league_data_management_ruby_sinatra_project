@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('pry')
 
 class Game
 
@@ -20,6 +21,14 @@ class Game
 
   def team2()
     return Team.find(team2_id)
+  end
+
+  def get_result()
+    if @team1_score > @team2_score
+      return team1()
+    else
+      return team2()
+    end
   end
 
   def save()
