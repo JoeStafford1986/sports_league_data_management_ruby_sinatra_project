@@ -12,6 +12,14 @@ class Game
     @outcome = options['outcome']
   end
 
+  def team1()
+    return Team.find(team1_id)
+  end
+
+  def team2()
+    return Team.find(team2_id)
+  end
+
   def save()
     sql = "INSERT INTO games(team1_id, team2_id, outcome)
     VALUES ($1, $2, $3)
@@ -34,14 +42,6 @@ class Game
     WHERE id = $4"
     values = [@team1_id, @team2_id, @outcome, @id]
     SqlRunner.run(sql, values)
-  end
-
-  def team1()
-    return Team.find(team1_id)
-  end
-
-  def team2()
-    return Team.find(team2_id)
   end
 
   def self.all()
