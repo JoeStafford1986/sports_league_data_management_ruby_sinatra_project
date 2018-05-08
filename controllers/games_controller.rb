@@ -20,7 +20,7 @@ end
 post '/games' do
   @game = Game.new(params)
   @game.save()
-  redirect '/'
+  redirect '/games'
 end
 
 #show singular game
@@ -40,12 +40,12 @@ end
 post '/games/:id/edit' do
   game = Game.new(params)
   game.update()
-  redirect '/'
+  redirect '/games'
 end
 
 #deletes game
 post '/games/:id/delete' do
   game = Game.find(params[:id])
   game.delete()
-  redirect '/'
+  redirect '/games'
 end
