@@ -11,6 +11,32 @@ class Team
     @name = options['name']
   end
 
+  def get_total_goals_scored
+    games = Game.all()
+    total_goals_scored = 0
+    for game in games
+      if game.team1_id == @id
+        total_goals_scored += game.team1_score
+      elsif game.team2_id == @id
+        total_goals_scored += game.team2_score
+      end
+    end
+    return total_goals_scored
+  end
+
+  def get_total_goals_conceded
+    games = Game.all()
+    total_goals_conceded = 0
+    for game in games
+      if game.team1_id == @id
+        total_goals_conceded += game.team2_score
+      elsif game.team2_id == @id
+        total_goals_conceded += game.team1_score
+      end
+    end
+    return total_goals_conceded
+  end
+
   def get_wins_count()
     total_wins = 0
     games = Game.all()
