@@ -27,6 +27,7 @@ end
 get '/teams/:id' do
   @team = Team.find(params[:id])
   @games = @team.games()
+  # binding.pry
   erb(:"teams/show")
 end
 
