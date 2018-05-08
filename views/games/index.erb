@@ -4,8 +4,7 @@
 <hr>
 
 <% for game in @games %>
-  <p>Team 1 ID: <%= game.team1_id %> </p>
-  <p>Team 2 ID: <%= game.team2_id %> </p>
+  <p><%= game.team1().name %> VS <%= game.team2().name %></p>
 
   <a href="/games/<%= game.id  %>">Show Game</a>
 
