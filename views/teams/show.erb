@@ -10,6 +10,13 @@
     <p><%= opponent.name %> : <%= @team.get_total_goals_scored_against(opponent) %></p>
   <% end %>
 <% end %>
+<hr>
+<p>Goals conceded against other teams:</p>
+<% for opponent in @teams %>
+  <% if opponent.id != @team.id %>
+    <p><%= opponent.name %> : <%= @team.get_total_goals_conceded_against(opponent) %></p>
+  <% end %>
+<% end %>
 
 <a href="/teams/<%= @team.id %>/edit">Edit Team</a>
 

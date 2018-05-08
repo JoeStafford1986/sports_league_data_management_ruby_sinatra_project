@@ -50,6 +50,19 @@ class Team
     return total_goals_scored_against
   end
 
+  def get_total_goals_conceded_against(opponent)
+    games = Game.all()
+    total_goals_conceded_against = 0
+    for game in games
+      if game.team1_id == @id && game.team2_id == opponent.id
+        total_goals_conceded_against += game.team2_score
+      elsif game.team2_id == @id && game.team1_id == opponent.id
+        total_goals_conceded_against += game.team1_score
+      end
+    end
+    return total_goals_conceded_against
+  end
+
   def get_wins_count()
     total_wins = 0
     games = Game.all()
