@@ -22,9 +22,14 @@ class Game
     return Team.find(team2_id)
   end
 
-  def get_outcome()
+  def get_winner()
     return team1() if @team1_score > @team2_score
     return team2() if @team2_score > @team1_score
+  end
+
+  def get_loser()
+    return team1() if @team1_score < @team2_score
+    return team2() if @team2_score < @team1_score
   end
 
   def save()

@@ -1,5 +1,5 @@
 <p><%= @game.team1().name %> <%= @game.team1_score %> - <%= @game.team2_score %> <%= @game.team2().name %> </p>
-<p><%= @game.get_outcome().name  %> Win!</p>
+<p><%= @game.get_winner().name  %> Win!</p>
 
 <a href="/games/<%= @game.id %>/edit">Edit Game</a>
 

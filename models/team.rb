@@ -15,7 +15,7 @@ class Team
     total_wins = 0
     games = Game.all()
     for game in games
-      winner = game.get_outcome()
+      winner = game.get_winner()
       if @id == winner.id
         total_wins += 1
       end
