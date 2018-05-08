@@ -25,8 +25,6 @@ end
 #show singular game
 get '/games/:id' do
   @game = Game.find(params[:id])
-  @team1 = @game.team1
-  @team2 = @game.team2
   erb(:"games/show")
 end
 
