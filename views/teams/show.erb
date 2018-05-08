@@ -1,4 +1,6 @@
 <p>Team Name: <%= @team.name  %></p>
+<p>Total wins: <%= @team.get_wins_count() %> </p>
+<p>Total losses: <%= @team.get_losses_count() %> </p>
 
 <a href="/teams/<%= @team.id %>/edit">Edit Team</a>
 
@@ -6,6 +8,3 @@
 </form>
 
 <hr>
-
-<p>Total wins: <%= @team.get_wins_count() %> </p>
-<p>Total losses: <%= @team.get_losses_count() %> </p>

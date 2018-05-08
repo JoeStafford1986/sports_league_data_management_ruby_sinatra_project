@@ -12,6 +12,7 @@ end
 
 #go to form to add game
 get '/games/new' do
+  @teams = Team.all()
   erb(:"games/new")
 end
 
