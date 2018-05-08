@@ -1,7 +1,4 @@
 <% for team in @sorted_teams %>
-  <p><%= team.name%> </p>
-
-  <a href="/teams/<%= team.id  %>">Show Team</a>
-
+  <p>Position <%= @sorted_teams.find_index(team) + 1 %> : <a href="/teams/<%= team.id  %>"><%= team.name %></p></a>
   <hr/>
 <%end  %>
