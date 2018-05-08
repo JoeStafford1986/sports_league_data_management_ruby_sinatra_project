@@ -59,7 +59,7 @@ class Team
 
   def self.sort_by_wins()
     teams = Team.all()
-    sorted_teams = teams.sort {|team1, team2| team1.get_wins() <=> team2.get_wins()}
+    sorted_teams = teams.sort {|team1, team2| team2.get_wins() <=> team1.get_wins()}
     return sorted_teams
   end
 

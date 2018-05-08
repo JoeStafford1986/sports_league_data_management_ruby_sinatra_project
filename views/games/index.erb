@@ -4,9 +4,6 @@
 <hr>
 
 <% for game in @games %>
-  <p><%= game.team1().name %> VS <%= game.team2().name %></p>
-
-  <a href="/games/<%= game.id  %>">Show Game</a>
-
+  <p><a href="/games/<%= game.id  %>"><%= game.team1().name %> VS <%= game.team2().name %></a></p>
   <hr/>
 <%end  %>

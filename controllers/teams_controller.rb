@@ -8,7 +8,6 @@ require_relative( '../models/team.rb' )
 #show all teams
 get '/teams' do
   @teams = Team.all()
-  @sorted_teams = Team.sort_by_wins()
   erb ( :"teams/index" )
 end
 

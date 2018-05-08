@@ -31,6 +31,7 @@ end
 #go to edit form
 get '/games/:id/edit' do
   @game = Game.find(params[:id])
+  @teams = Team.all()
   erb(:"games/edit")
 end
 

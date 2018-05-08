@@ -1,20 +1,26 @@
-<p>Team 1 ID: <%= @game.team1_id %> </p>
-<p>Team 2 ID: <%= @game.team2_id %> </p>
-
 <form method="post" action="/games/<%=@game.id%>/edit">
 
-  <label for="team1_id">Team 1:</label>
-  <input type="text" name="team1_id" id="team1_id" value=" <%=  @game.team1_id %>">
+  <label> Team 1:
+    <select id="team-1-select" name="team1_id">
+      <% for team in @teams %>
+        <option value="<%= team.id %>"><%= team.name %></option>
+      <% end %>
+    </select>
+  </label>
 
-  <label for="team2_id">Team 2:</label>
-  <input type="text" name="team2_id" id="team2_id" value=" <%=  @game.team2_id %>">
+  <label> Team 2:
+    <select id="team-2-select" name="team2_id">
+      <% for team in @teams %>
+        <option value="<%= team.id %>"><%= team.name %></option>
+      <% end %>
+    </select>
+  </label>
 
   <label for="team1_score">Team 1 Score:</label>
   <input type="text" name="team1_score" id="team1_score" value=" <%=  @game.team1_score %>">
 
   <label for="team2_score">Team 2 Score:</label>
   <input type="text" name="team2_score" id="team2_score" value=" <%=  @game.team2_score %>">
-
 
   <input type="submit"  value="Edit Game">
 
