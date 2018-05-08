@@ -10,7 +10,6 @@ class Game
     @id = options['id'].to_i if options['id']
     @team1_id = options['team1_id'].to_i
     @team2_id = options['team2_id'].to_i
-    @outcome = options['outcome']
     @team1_score = options['team1_score'].to_i
     @team2_score = options['team2_score'].to_i
   end
@@ -29,10 +28,10 @@ class Game
   end
 
   def save()
-    sql = "INSERT INTO games(team1_id, team2_id, outcome, team1_score, team2_score)
-    VALUES ($1, $2, $3, $4, $5)
+    sql = "INSERT INTO games(team1_id, team2_id, team1_score, team2_score)
+    VALUES ($1, $2, $3, $4)
     RETURNING id"
-    values = [@team1_id, @team2_id, @outcome, @team1_score, @team2_score]
+    values = [@team1_id, @team2_id, @team1_score, @team2_score]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -46,9 +45,9 @@ class Game
 
   def update()
     sql = "UPDATE games
-    SET (team1_id, team2_id, outcome, team1_score, team2_score) = ($1, $2, $3, $4, $5)
-    WHERE id = $6"
-    values = [@team1_id, @team2_id, @outcome, @team1_score, @team2_score, @id]
+    SET (team1_id, team2_id, team1_score, team2_score) = ($1, $2, $3, $4)
+    WHERE id = $5"
+    values = [@team1_id, @team2_id, @team1_score, @team2_score, @id]
     SqlRunner.run(sql, values)
   end
 

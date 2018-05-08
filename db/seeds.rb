@@ -33,7 +33,6 @@ team4.save()
 game1 = Game.new({
   "team1_id" => team1.id,
   "team2_id" => team2.id,
-  "outcome" => "Orcs win!",
   "team1_score" => 0,
   "team2_score" => 1
 })
@@ -43,9 +42,8 @@ game1.save()
 game2 = Game.new({
   "team1_id" => team3.id,
   "team2_id" => team2.id,
-  "outcome" => "Dwarves win!",
   "team1_score" => 1,
-  "team2_score" => 1
+  "team2_score" => 2
 })
 
 game2.save()
@@ -53,7 +51,6 @@ game2.save()
 game3 = Game.new({
   "team1_id" => team3.id,
   "team2_id" => team4.id,
-  "outcome" => "Elves win!",
   "team1_score" => 5,
   "team2_score" => 3
 })

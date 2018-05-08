@@ -6,7 +6,6 @@
 <% for game in @games %>
   <p>Team 1 ID: <%= game.team1_id %> </p>
   <p>Team 2 ID: <%= game.team2_id %> </p>
-  <p>Outcome: <%= game.outcome %> </p>
 
   <a href="/games/<%= game.id  %>">Show Game</a>
 
