@@ -11,6 +11,18 @@ class Team
     @name = options['name']
   end
 
+  def get_wins()
+    total_wins = 0
+    games = Game.all()
+    for game in games
+      winner = game.get_outcome()
+      if @id == winner.id
+        total_wins += 1
+      end
+    end
+    return total_wins
+  end
+
   def save()
     sql = "INSERT INTO teams(name)
     VALUES ($1)
@@ -43,6 +55,12 @@ class Team
     games_data = SqlRunner.run(sql, values)
     games = games_data.map { |game| Game.new( game ) }
     return games
+  end
+
+  def self.sort_by_wins()
+    teams = Team.all()
+    sorted_teams = teams.sort {|team1, team2| team1.get_wins() <=> team2.get_wins()}
+    return sorted_teams
   end
 
   def self.all()

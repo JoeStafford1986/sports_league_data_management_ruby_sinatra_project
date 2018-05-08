@@ -10,3 +10,13 @@
 
   <hr/>
 <%end  %>
+
+<hr>
+
+<% for team in @sorted_teams %>
+  <p><%= team.name%> </p>
+
+  <a href="/teams/<%= team.id  %>">Show Team</a>
+
+  <hr/>
+<%end  %>
