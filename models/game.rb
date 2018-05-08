@@ -10,8 +10,8 @@ class Game
     @team1_id = options['team1_id'].to_i
     @team2_id = options['team2_id'].to_i
     @outcome = options['outcome']
-    @team1_score = options['team1_score']
-    @team2_score = options['team2_score']
+    @team1_score = options['team1_score'].to_i
+    @team2_score = options['team2_score'].to_i
   end
 
   def team1()
