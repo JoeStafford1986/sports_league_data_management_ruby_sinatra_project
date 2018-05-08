@@ -20,7 +20,7 @@ end
 post '/teams' do
   @team = Team.new(params)
   @team.save()
-  redirect '/'
+  redirect '/teams'
 end
 
 #show singular team
@@ -41,12 +41,12 @@ end
 post '/teams/:id/edit' do
   team = Team.new(params)
   team.update()
-  redirect '/'
+  redirect '/teams'
 end
 
 #delete team
 post '/teams/:id/delete' do
   team = Team.find(params[:id])
   team.delete()
-  redirect '/'
+  redirect '/teams'
 end
