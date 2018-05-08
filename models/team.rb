@@ -11,7 +11,7 @@ class Team
     @name = options['name']
   end
 
-  def get_wins()
+  def get_wins_count()
     total_wins = 0
     games = Game.all()
     for game in games
@@ -21,6 +21,18 @@ class Team
       end
     end
     return total_wins
+  end
+
+  def get_losses_count()
+    total_losses = 0
+    games = Game.all()
+    for game in games
+      loser = game.get_loser()
+      if @id == loser.id
+        total_losses += 1
+      end
+    end
+    return total_losses
   end
 
   def save()
@@ -59,7 +71,7 @@ class Team
 
   def self.sort_by_wins()
     teams = Team.all()
-    sorted_teams = teams.sort {|team1, team2| team2.get_wins() <=> team1.get_wins()}
+    sorted_teams = teams.sort {|team1, team2| team2.get_wins_count() <=> team1.get_wins_count()}
     return sorted_teams
   end
 
