@@ -26,6 +26,7 @@ end
 #show singular team
 get '/teams/:id' do
   @team = Team.find(params[:id])
+  @teams = Team.all()
   @games = @team.games()
   # binding.pry
   erb(:"teams/show")

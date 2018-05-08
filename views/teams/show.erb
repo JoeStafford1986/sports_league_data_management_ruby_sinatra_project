@@ -3,6 +3,13 @@
 <p>Total losses: <%= @team.get_losses_count() %> </p>
 <p>Total goals scored: <%= @team.get_total_goals_scored() %> </p>
 <p>Total goals conceded: <%= @team.get_total_goals_conceded() %> </p>
+<hr>
+<p>Goals scored against other teams:</p>
+<% for opponent in @teams %>
+  <% if opponent.id != @team.id %>
+    <p><%= opponent.name %> : <%= @team.get_total_goals_scored_against(opponent) %></p>
+  <% end %>
+<% end %>
 
 <a href="/teams/<%= @team.id %>/edit">Edit Team</a>
 
