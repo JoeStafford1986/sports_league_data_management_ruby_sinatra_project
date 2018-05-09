@@ -25,7 +25,7 @@
 <hr>
 
 <div class="goal-data">
-  <p>Scored against <% opponent_team = @team.get_opponent_scored_against_most %><%= opponent_team.name  %> the most</p>
+  <p>Scored goals against <% opponent_team = @team.get_opponent_scored_against_most %><%= opponent_team.name  %> the most.</p>
   <p>Goals scored against other teams:</p>
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>
@@ -33,8 +33,8 @@
     <% end %>
   <% end %>
   <hr>
-  <p>Conceded against <% opponent_team = @team.get_opponent_conceded_against_most %><%= opponent_team.name  %> the most</p>
-  <p>Goals conceded against other teams:</p>
+  <p>Conceded goals against <% opponent_team = @team.get_opponent_conceded_against_most %><%= opponent_team.name  %> the most.</p>
+  <p>Goals Conceded Against Opponents:</p>
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>
       <p><%= opponent.name %> : <%= @team.get_total_goals_conceded_against(opponent) %></p>
@@ -45,16 +45,16 @@
 <hr>
 
 <div class="game-data">
-  <p>Won against <% opponent_team = @team.get_opponent_won_against_most %><%= opponent_team.name  %> the most</p>
-  <p>Wins against other teams:</p>
+  <p><%= @team.name %> won against <% opponent_team = @team.get_opponent_won_against_most %><%= opponent_team.name  %> the most.</p>
+  <p>Wins Against Opponents:</p>
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>
       <p><%= opponent.name %> : <%= @team.get_wins_against_opponent(opponent) %></p>
     <% end %>
   <% end %>
   <hr>
-  <p>Lost against <% opponent_team = @team.get_opponent_lost_against_most %><%= opponent_team.name  %> the most</p>
-  <p>Losses against other teams:</p>
+  <p><%= @team.name %> lost against <% opponent_team = @team.get_opponent_lost_against_most %><%= opponent_team.name  %> the most.</p>
+  <p>Losses Against Opponents:</p>
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>
       <p><%= opponent.name %> : <%= @team.get_losses_against_opponent(opponent) %></p>
@@ -65,7 +65,7 @@
 <hr>
 
 <div class="list-games">
-  <p>All games played in:</p>
+  <p>All Games Played:</p>
   <% for game in @team.games() %>
     <% if game.team1_id || game.team2_id == @team.id %>
       <p><a href="/games/<%= game.id %>"><%= game.team1().name %> VS <%= game.team2().name %></a></p>

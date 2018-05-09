@@ -2,33 +2,30 @@
   <h2>Add New Game</h2>
 </div>
 
-<form method="post" action="/games">
+<hr>
 
-  <label> Team 1:
-    <select name="team1_id" id="team1_id_select">
-      <% for team in @teams %>
-        <option value=<%= team.id %>><%= team.name %></option>
-      <% end %>
-    </select>
-  </label>
-
-  <label> Team 2:
-    <select name="team2_id" id="team2_id_select">
-      <% for team in @teams %>
-        <option value=<%= team.id %>><%= team.name %></option>
-      <% end %>
-    </select>
-  </label>
-
-  <label for="team1-score">Team 1 score:</label>
-  <input type="number" name="team1_score" score="team1-score">
-
-  <label for="team2-score">Team 2 score:</label>
-  <input type="number" name="team2_score" score="team2-score">
-
-  <label for="date-of-game">Date of game:</label>
-  <input type="date" name="date_of_game">
-
-  <input type="submit"  value="New Game">
-
-</form>
+<div class="add-item">
+  <form method="post" action="/games">
+    <label> Team 1:
+      <select name="team1_id" id="team1_id_select">
+        <% for team in @teams %>
+          <option value=<%= team.id %>><%= team.name %></option>
+        <% end %>
+      </select>
+    </label>
+    <label> Team 2:
+      <select name="team2_id" id="team2_id_select">
+        <% for team in @teams %>
+          <option value=<%= team.id %>><%= team.name %></option>
+        <% end %>
+      </select>
+    </label>
+    <label for="team1-score">Team 1 Score:</label>
+    <input type="number" name="team1_score" score="team1-score">
+    <label for="team2-score">Team 2 Score:</label>
+    <input type="number" name="team2_score" score="team2-score">
+    <label for="date-of-game">Date of Game:</label>
+    <input type="date" name="date_of_game">
+    <input type="submit"  value="New Game">
+  </form>
+</div>

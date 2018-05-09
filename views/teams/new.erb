@@ -4,11 +4,12 @@
 
 <hr>
 
-<form method="post" action="/teams">
+<div class="add-item">
+  <form method="post" action="/teams">
+    <label for="name">Team Name:</label>
+    <input type="text" name="name" id="name" required="required">
+    <input type="submit"  value="New Team">
+  </form>
+</div>
 
-  <label for="name">Team Name:</label>
-  <input type="text" name="name" id="name" required="required">
-
-  <input type="submit"  value="New Team">
-
-</form>
+<hr>
