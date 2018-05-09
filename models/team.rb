@@ -63,6 +63,32 @@ class Team
     return total_goals_conceded_against
   end
 
+  def get_wins_against_opponent(opponent)
+    total_wins_against_opponent = 0
+    games = Game.all()
+    for game in games
+      winner = game.get_winner()
+      loser = game.get_loser()
+      if @id == winner.id && opponent.id == loser.id
+        total_wins_against_opponent += 1
+      end
+    end
+    return total_wins_against_opponent
+  end
+
+  def get_losses_against_opponent(opponent)
+    total_losses_against_opponent = 0
+    games = Game.all()
+    for game in games
+      winner = game.get_winner()
+      loser = game.get_loser()
+      if @id == loser.id && opponent.id == winner.id
+        total_losses_against_opponent += 1
+      end
+    end
+    return total_losses_against_opponent
+  end
+
   def get_wins_count()
     total_wins = 0
     games = Game.all()
