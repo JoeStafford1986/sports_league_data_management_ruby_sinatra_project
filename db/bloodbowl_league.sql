@@ -14,5 +14,6 @@ CREATE TABLE games
   team2_id INT4 references teams(id) ON DELETE CASCADE,
   outcome VARCHAR(255),
   team1_score INT4,
-  team2_score INT4
+  team2_score INT4,
+  date_of_game DATE
 );
