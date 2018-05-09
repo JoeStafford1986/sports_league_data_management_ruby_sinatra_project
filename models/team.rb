@@ -119,7 +119,7 @@ class Team
     sorted_teams = DataManager.sort_teams()
     opponent_lost_against_most = sorted_teams.first()
     for team in sorted_teams
-      if get_wins_against_opponent(team) >= get_wins_against_opponent(opponent_lost_against_most)
+      if get_losses_against_opponent(team) >= get_losses_against_opponent(opponent_lost_against_most)
         opponent_lost_against_most = team
       end
     end
