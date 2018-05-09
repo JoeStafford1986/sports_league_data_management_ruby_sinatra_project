@@ -1,8 +1,11 @@
-<p>Team name: <%= @team.name  %></p>
-<p>Total wins: <%= @team.get_wins_count() %> </p>
-<p>Total losses: <%= @team.get_losses_count() %> </p>
-<p>Total goals scored: <%= @team.get_total_goals_scored() %> </p>
-<p>Total goals conceded: <%= @team.get_total_goals_conceded() %> </p>
+<div class="team-details">
+  <p>Team name: <%= @team.name  %></p>
+  <p>Total Wins: <%= @team.get_wins_count() %> </p>
+  <p>Total Losses: <%= @team.get_losses_count() %> </p>
+  <p>Total Goals Scored: <%= @team.get_total_goals_scored() %> </p>
+  <p>Total Goals Conceded: <%= @team.get_total_goals_conceded() %> </p>
+</div>
+
 <hr>
 <p>Goals scored against other teams:</p>
 <% for opponent in @teams %>

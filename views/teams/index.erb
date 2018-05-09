@@ -1,14 +1,13 @@
-<li>
+<div class="new-item-button">
   <a href="/teams/new">New Team</a>
-</li>
+</div>
+
 <hr>
 
 <% for team in @teams %>
-  <p><%= team.name%> </p>
-
-  <a href="/teams/<%= team.id  %>">Show Team</a>
-
-  <hr/>
-<%end  %>
+  <div class="team-index-item">
+    <a href="/teams/<%= team.id  %>"><p><%= team.name %></p></a>
+  </div>
+<% end %>
 
 <hr>
