@@ -34,6 +34,16 @@ class Team
     return opponent_scored_against_most
   end
 
+  def get_opponent_conceded_against_most
+    sorted_teams = DataManager.sort_teams()
+    opponent_conceded_against_most = sorted_teams.first()
+    for team in sorted_teams
+      if get_total_goals_conceded_against(team) >= get_total_goals_conceded_against(opponent_conceded_against_most)
+        opponent_conceded_against_most = team
+      end
+    end
+    return opponent_conceded_against_most
+  end
 
   def get_total_goals_scored
     games = Game.all()
