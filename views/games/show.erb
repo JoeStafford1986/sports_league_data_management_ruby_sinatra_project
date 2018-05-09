@@ -15,13 +15,4 @@
   <p><%= @game.get_winner().name  %> Win!</p>
 </div>
 
-
-
-<a href="/games/<%= @game.id %>/edit">Edit Game</a>
-
-<form action="/games/<%= @game.id  %>/delete" method="post">
-  <input type="checkbox" name="confirmation" value="Delete Game" required="required">
-  <input type="submit" name="Delete" value="Delete Game">
-</form>
-
 <hr>

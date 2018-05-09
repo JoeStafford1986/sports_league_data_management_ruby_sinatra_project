@@ -63,3 +63,14 @@
 </div>
 
 <hr>
+
+<div class="list-games">
+  <p>All games played in:</p>
+  <% for game in @team.games() %>
+    <% if game.team1_id || game.team2_id == @team.id %>
+      <p><a href="/games/<%= game.id %>"><%= game.team1().name %> VS <%= game.team2().name %></a></p>
+    <% end %>
+  <% end %>
+</div>
+
+<hr>

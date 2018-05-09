@@ -7,8 +7,7 @@
 <div class="index-item">
   <% sorted_games_by_date = Game.sort_by_date() %>
   <% for game in sorted_games_by_date %>
-    <p><a href="/games/<%= game.id  %>"><%= game.team1().name %> VS <%= game.team2().name %></a> : Played on - <%= game.date_of_game %></p>
-    <hr/>
+    <p><a href="/games/<%= game.id %>"><%= game.team1().name %> VS <%= game.team2().name %></a> : Played on - <%= game.date_of_game %></p>
   <% end %>
 </div>
 

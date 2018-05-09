@@ -8,7 +8,7 @@
   <% sorted_teams_alphabetically = Team.sort_alphabetically() %>
   <% for team in sorted_teams_alphabetically %>
     <div class="team-index-item">
-      <a href="/teams/<%= team.id  %>"><p><%= team.name %></p></a>
+      <a href="/teams/<%= team.id %>"><p><%= team.name %></p></a>
     </div>
   <% end %>
 </div>
