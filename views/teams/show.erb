@@ -1,3 +1,13 @@
+<div class="top-section-navigation">
+  <a href="/teams/<%= @team.id %>/edit">Edit Team</a>
+  <form action="/teams/<%= @team.id  %>/delete" method="post">
+    <input type="checkbox" name="confirmation" value="Delete Team" required="required">
+    <input type="submit" name="Delete" value="Delete Team">
+  </form>
+</div>
+
+<hr>
+
 <div class="team-details">
   <p>Team name: <%= @team.name  %></p>
   <p>Total Wins: <%= @team.get_wins_count() %> </p>
@@ -33,7 +43,6 @@
 </div>
 
 <hr>
-
 
 <div class="game-data">
   <p>Won against <% opponent_team = @team.get_opponent_won_against_most %><%= opponent_team.name  %> the most</p>
