@@ -5,7 +5,7 @@
       <% for team in @teams %>
         <% if team.id == @game.team1_id %>
           <option value=<%= team.id %> selected><%= team.name %></option>
-        <% elsif team.id != @game.team2_id %>
+        <% else %>
           <option value=<%= team.id %>><%= team.name %></option>
         <% end %>
       <% end %>
@@ -17,7 +17,7 @@
       <% for team in @teams %>
         <% if team.id == @game.team2_id %>
           <option value=<%= team.id %> selected><%= team.name %></option>
-        <% elsif team.id != @game.team1_id  %>
+        <% else %>
           <option value=<%= team.id %>><%= team.name %></option>
         <% end %>
       <% end %>
