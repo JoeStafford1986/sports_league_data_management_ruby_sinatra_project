@@ -16,12 +16,12 @@ class Team
     total_goals_scored = 0
     for game in games
       if game.team1_id == @id
-        total_goals_scored += game.team1_score
+        total_goals_scored += game.team1_score.to_i
       elsif game.team2_id == @id
-        total_goals_scored += game.team2_score
+        total_goals_scored += game.team2_score.to_i
       end
     end
-    return total_goals_scored
+    return total_goals_scored.to_i
   end
 
   def get_total_goals_conceded
@@ -29,12 +29,12 @@ class Team
     total_goals_conceded = 0
     for game in games
       if game.team1_id == @id
-        total_goals_conceded += game.team2_score
+        total_goals_conceded += game.team2_score.to_i
       elsif game.team2_id == @id
-        total_goals_conceded += game.team1_score
+        total_goals_conceded += game.team1_score.to_i
       end
     end
-    return total_goals_conceded
+    return total_goals_conceded.to_i
   end
 
   def get_total_goals_scored_against(opponent)
@@ -98,7 +98,7 @@ class Team
         total_wins += 1
       end
     end
-    return total_wins
+    return total_wins.to_i
   end
 
   def get_losses_count()
@@ -110,7 +110,15 @@ class Team
         total_losses += 1
       end
     end
-    return total_losses
+    return total_losses.to_i
+  end
+
+  def get_goal_difference()
+
+    goal_difference = 0
+    goal_difference += get_total_goals_scored()
+    goal_difference -= get_total_goals_conceded()
+    return goal_difference
   end
 
   def save()
@@ -147,11 +155,20 @@ class Team
     return games
   end
 
-  def self.sort_by_wins()
-    teams = Team.all()
-    sorted_teams = teams.sort {|team1, team2| team2.get_wins_count() <=> team1.get_wins_count()}
-    return sorted_teams
-  end
+  # def self.sort_by_wins()
+  #   teams = Team.all()
+  #   sorted_teams = teams.sort {|team1, team2| team2.get_wins_count() <=> team1.get_wins_count()}
+  #   return sorted_teams
+  # end
+  #
+  # def self.sort_by_goal_difference(teams)
+  #   sorted_teams_by_goals = teams.sort do |team1, team2|
+  #     if team2.get_wins_count() == team1.get_wins_count()
+  #       team2.get_goal_difference() <=> team1.get_goal_difference()
+  #     end
+  #   end
+  #   return sorted_teams_by_goals
+  # end
 
   def self.all()
     sql = "SELECT * FROM teams"

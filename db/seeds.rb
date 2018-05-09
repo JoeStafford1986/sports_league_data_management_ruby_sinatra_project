@@ -33,8 +33,8 @@ team4.save()
 game1 = Game.new({
   "team1_id" => team1.id,
   "team2_id" => team2.id,
-  "team1_score" => 0,
-  "team2_score" => 1,
+  "team1_score" => 1,
+  "team2_score" => 0,
   "date_of_game" => "2018-05-01"
 })
 
@@ -44,7 +44,7 @@ game2 = Game.new({
   "team1_id" => team3.id,
   "team2_id" => team2.id,
   "team1_score" => 1,
-  "team2_score" => 2,
+  "team2_score" => 3,
   "date_of_game" => "2017-10-19"
 })
 
