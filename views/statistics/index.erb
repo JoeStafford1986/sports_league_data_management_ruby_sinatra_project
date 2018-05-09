@@ -1,4 +1,0 @@
-<% for team in @sorted_teams_by_goal_difference %>
-  <p>Sorted_Position <%= @sorted_teams_by_goal_difference.find_index(team) + 1 %> : <a href="/teams/<%= team.id  %>"><%= team.name %></p></a>
-  <hr/>
-<%end  %>
