@@ -1,6 +1,21 @@
-<p><%= @game.team1().name %> <%= @game.team1_score %> - <%= @game.team2_score %> <%= @game.team2().name %> </p>
-<p><%= @game.date_of_game %></p>
-<p><%= @game.get_winner().name  %> Win!</p>
+<div class="top-section-navigation">
+  <h2>Game: <%= @game.team1().name %> VS <%= @game.team2().name %></h2>
+  <form action="/games/<%= @game.id %>/delete" method="post">
+    <input type="checkbox" name="confirmation" value="Delete Game" required="required">
+    <input type="submit" name="Delete" value="Delete Game">
+  </form>
+  <a href="/games/<%= @game.id %>/edit">Edit Game</a>
+</div>
+
+<hr>
+
+<div class="game-details">
+  <p><a href="/teams/<%= @game.team1.id %>"><%= @game.team1().name %></a> : <%= @game.team1_score %> - <%= @game.team2_score %> : <a href="/teams/<%= @game.team2.id %>"><%= @game.team2().name %></a></p>
+  <p>Played On: <%= @game.date_of_game %></p>
+  <p><%= @game.get_winner().name  %> Win!</p>
+</div>
+
+
 
 <a href="/games/<%= @game.id %>/edit">Edit Game</a>
 
