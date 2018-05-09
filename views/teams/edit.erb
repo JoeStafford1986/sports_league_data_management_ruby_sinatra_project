@@ -1,5 +1,5 @@
 <div class="top-section-navigation">
-  <h2>Team: <a href="/teams/<%=@team.id%>"> <%= @team.name %></a></h2>
+  <h2>Team: <a href="/teams/<%=@team.id%>"><%= @team.name %></a></h2>
   <form action="/teams/<%= @team.id  %>/delete" method="post">
     <input type="checkbox" name="confirmation" value="Delete Team" required="required">
     <input type="submit" name="Delete" value="Delete Team">
@@ -9,7 +9,7 @@
 <div class="edit">
   <form method="post" action="/teams/<%=@team.id%>/edit">
     <label for="name">Name</label>
-    <input type="text" required="required" name="name" id="name" value=" <%=  @team.name %>">
+    <input type="text" required="required" name="name" id="name" value="<%=  @team.name %>">
     <input type="submit"  value="Edit Team">
   </form>
 </div>
