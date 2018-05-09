@@ -7,4 +7,4 @@
 <% for game in sorted_games_by_date %>
   <p><a href="/games/<%= game.id  %>"><%= game.team1().name %> VS <%= game.team2().name %></a> : Played on - <%= game.date_of_game %></p>
   <hr/>
-<%end  %>
+<% end %>
