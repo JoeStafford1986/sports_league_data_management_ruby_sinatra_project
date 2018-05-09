@@ -57,6 +57,12 @@ class Game
     SqlRunner.run(sql, values)
   end
 
+  def self.sort_by_date()
+    games = Game.all()
+    sorted_games = games.sort {|game1, game2| game2.date_of_game() <=> game1.date_of_game()}
+    return sorted_games
+  end
+
   def self.all()
     sql = "SELECT * FROM games"
     results = SqlRunner.run( sql )
