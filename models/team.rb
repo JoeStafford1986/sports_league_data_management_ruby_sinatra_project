@@ -23,7 +23,14 @@ class Team
     return league_positon
   end
 
-  def get_opponent_scored_against_most
+  def get_goal_difference()
+    goal_difference = 0
+    goal_difference += get_total_goals_scored()
+    goal_difference -= get_total_goals_conceded()
+    return goal_difference
+  end
+
+  def get_opponent_scored_against_most()
     sorted_teams = DataManager.sort_teams()
     opponent_scored_against_most = sorted_teams.first()
     for team in sorted_teams
@@ -34,7 +41,7 @@ class Team
     return opponent_scored_against_most
   end
 
-  def get_opponent_conceded_against_most
+  def get_opponent_conceded_against_most()
     sorted_teams = DataManager.sort_teams()
     opponent_conceded_against_most = sorted_teams.first()
     for team in sorted_teams
@@ -45,7 +52,7 @@ class Team
     return opponent_conceded_against_most
   end
 
-  def get_total_goals_scored
+  def get_total_goals_scored()
     games = Game.all()
     total_goals_scored = 0
     for game in games
@@ -58,7 +65,7 @@ class Team
     return total_goals_scored.to_i
   end
 
-  def get_total_goals_conceded
+  def get_total_goals_conceded()
     games = Game.all()
     total_goals_conceded = 0
     for game in games
@@ -95,6 +102,17 @@ class Team
       end
     end
     return total_goals_conceded_against
+  end
+
+  def get_opponent_won_against_most()
+    sorted_teams = DataManager.sort_teams()
+    opponent_won_against_most = sorted_teams.first()
+    for team in sorted_teams
+      if get_wins_against_opponent(team) >= get_wins_against_opponent(opponent_won_against_most)
+        opponent_won_against_most = team
+      end
+    end
+    return opponent_won_against_most
   end
 
   def get_wins_against_opponent(opponent)
@@ -145,14 +163,6 @@ class Team
       end
     end
     return total_losses.to_i
-  end
-
-  def get_goal_difference()
-
-    goal_difference = 0
-    goal_difference += get_total_goals_scored()
-    goal_difference -= get_total_goals_conceded()
-    return goal_difference
   end
 
   def save()

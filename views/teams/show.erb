@@ -9,54 +9,54 @@
 <hr>
 
 <div class="league_standing">
-
   <p>League Position: <%= @team.get_league_position() %> </p>
-
 </div>
 
 <hr>
 
 <div class="goal-data">
   <p>Scored against <% opponent_team = @team.get_opponent_scored_against_most %><%= opponent_team.name  %> the most</p>
-
   <p>Goals scored against other teams:</p>
-
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>
       <p><%= opponent.name %> : <%= @team.get_total_goals_scored_against(opponent) %></p>
     <% end %>
   <% end %>
-
   <hr>
-
   <p>Conceded against <% opponent_team = @team.get_opponent_conceded_against_most %><%= opponent_team.name  %> the most</p>
-
   <p>Goals conceded against other teams:</p>
-
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>
       <p><%= opponent.name %> : <%= @team.get_total_goals_conceded_against(opponent) %></p>
     <% end %>
   <% end %>
+</div>
+
+<hr>
+
+
+<div class="game-data">
+  <p>Won against <% opponent_team = @team.get_opponent_won_against_most
+ %><%= opponent_team.name  %> the most</p>
+
+  <p>Wins against other teams:</p>
+  <% for opponent in @teams %>
+    <% if opponent.id != @team.id %>
+      <p><%= opponent.name %> : <%= @team.get_wins_against_opponent(opponent) %></p>
+    <% end %>
+  <% end %>
 
   <hr>
 
+
+  <p>Losses against other teams:</p>
+  <% for opponent in @teams %>
+    <% if opponent.id != @team.id %>
+      <p><%= opponent.name %> : <%= @team.get_losses_against_opponent(opponent) %></p>
+    <% end %>
+  <% end %>
 </div>
 
-
-<p>Wins against other teams:</p>
-<% for opponent in @teams %>
-  <% if opponent.id != @team.id %>
-    <p><%= opponent.name %> : <%= @team.get_wins_against_opponent(opponent) %></p>
-  <% end %>
-<% end %>
-<hr>
-<p>Losses against other teams:</p>
-<% for opponent in @teams %>
-  <% if opponent.id != @team.id %>
-    <p><%= opponent.name %> : <%= @team.get_losses_against_opponent(opponent) %></p>
-  <% end %>
-<% end %>
 <hr>
 
 <a href="/teams/<%= @team.id %>/edit">Edit Team</a>
