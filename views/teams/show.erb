@@ -9,17 +9,17 @@
 
 <hr>
 
+<div class="league_standing">
+  <p>League Position: <%= @team.get_league_position() %> </p>
+</div>
+
+<hr>
+
 <div class="team-details">
   <p>Total Wins: <%= @team.get_wins_count() %> </p>
   <p>Total Losses: <%= @team.get_losses_count() %> </p>
   <p>Goals Scored: <%= @team.get_total_goals_scored() %> </p>
   <p>Goals Conceded: <%= @team.get_total_goals_conceded() %> </p>
-</div>
-
-<hr>
-
-<div class="league_standing">
-  <p>League Position: <%= @team.get_league_position() %> </p>
 </div>
 
 <hr>
