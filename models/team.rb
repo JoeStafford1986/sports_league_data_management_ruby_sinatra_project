@@ -176,6 +176,12 @@ class Team
     return total_losses.to_i
   end
 
+  def self.sort_alphabetically()
+    teams = Team.all()
+    sorted_teams = teams.sort_by {|team| team.name.downcase }
+    return sorted_teams
+  end
+
   def save()
     sql = "INSERT INTO teams(name)
     VALUES ($1)
