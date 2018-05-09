@@ -2,7 +2,7 @@
 
 <form method="post" action="/teams/<%=@team.id%>/edit">
   <label for="name">Name</label>
-  <input type="text" name="name" id="name" value=" <%=  @team.name %>">
+  <input type="text" required="required" name="name" id="name" value=" <%=  @team.name %>">
   <input type="submit"  value="Edit Team">
 
 </form>
