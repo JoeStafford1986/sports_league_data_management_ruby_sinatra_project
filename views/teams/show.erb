@@ -36,19 +36,15 @@
 
 
 <div class="game-data">
-  <p>Won against <% opponent_team = @team.get_opponent_won_against_most
- %><%= opponent_team.name  %> the most</p>
-
+  <p>Won against <% opponent_team = @team.get_opponent_won_against_most %><%= opponent_team.name  %> the most</p>
   <p>Wins against other teams:</p>
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>
       <p><%= opponent.name %> : <%= @team.get_wins_against_opponent(opponent) %></p>
     <% end %>
   <% end %>
-
   <hr>
-
-
+  <p>Lost against <% opponent_team = @team.get_opponent_lost_against_most %><%= opponent_team.name  %> the most</p>
   <p>Losses against other teams:</p>
   <% for opponent in @teams %>
     <% if opponent.id != @team.id %>

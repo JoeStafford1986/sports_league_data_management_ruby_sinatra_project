@@ -115,6 +115,17 @@ class Team
     return opponent_won_against_most
   end
 
+  def get_opponent_lost_against_most()
+    sorted_teams = DataManager.sort_teams()
+    opponent_lost_against_most = sorted_teams.first()
+    for team in sorted_teams
+      if get_wins_against_opponent(team) >= get_wins_against_opponent(opponent_lost_against_most)
+        opponent_lost_against_most = team
+      end
+    end
+    return opponent_lost_against_most
+  end
+
   def get_wins_against_opponent(opponent)
     total_wins_against_opponent = 0
     games = Game.all()
