@@ -1,5 +1,6 @@
 require_relative('../db/sql_runner')
 require_relative('game')
+require_relative('data_manager')
 
 class Team
 
@@ -10,6 +11,29 @@ class Team
     @id = options['id'].to_i if options['id']
     @name = options['name']
   end
+
+  def get_league_position()
+    league_position = 0
+    sorted_teams = DataManager.sort_teams()
+    for team in sorted_teams
+      if team.id == id
+        league_positon = sorted_teams.find_index(team) + 1
+      end
+    end
+    return league_positon
+  end
+
+  def get_opponent_scored_against_most
+    sorted_teams = DataManager.sort_teams()
+    opponent_scored_against_most = sorted_teams.first()
+    for team in sorted_teams
+      if get_total_goals_scored_against(team) >= get_total_goals_scored_against(opponent_scored_against_most)
+        opponent_scored_against_most = team
+      end
+    end
+    return opponent_scored_against_most
+  end
+
 
   def get_total_goals_scored
     games = Game.all()

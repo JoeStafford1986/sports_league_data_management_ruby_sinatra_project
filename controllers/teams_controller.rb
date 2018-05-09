@@ -2,8 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry' )
 require_relative( '../models/team.rb' )
-
-
+require_relative( '../models/data_manager.rb' )
 
 #show all teams
 get '/teams' do
@@ -28,7 +27,7 @@ get '/teams/:id' do
   @team = Team.find(params[:id])
   @teams = Team.all()
   @games = @team.games()
-  # binding.pry
+  @sorted_teams = DataManager.sort_teams()
   erb(:"teams/show")
 end
 
