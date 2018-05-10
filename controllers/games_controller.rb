@@ -40,7 +40,10 @@ end
 #run update on edited game
 post '/games/:id/edit' do
   game = Game.new(params)
-  game.update()
+  if game.team1_score != game.team2_score
+    game.update()
+    redirect '/games'
+  end
   redirect '/games'
 end
 
