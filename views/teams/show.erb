@@ -10,62 +10,66 @@
 <hr>
 
 <div class="league_standing">
-  <p>League Position: <%= @team.get_league_position() %> </p>
+  <p><span>League Position: <%= @team.get_league_position() %></span></p>
 </div>
 
 <hr>
 
-<div class="team-details">
-  <p>Total Wins: <%= @team.get_wins_count() %> </p>
-  <p>Total Losses: <%= @team.get_losses_count() %> </p>
-  <p>Goals Scored: <%= @team.get_total_goals_scored() %> </p>
-  <p>Goals Conceded: <%= @team.get_total_goals_conceded() %> </p>
-</div>
+<div class="team-show">
+  <div class="team-details">
+    <span>
+      <p>Total Wins: <%= @team.get_wins_count() %></p>
+      <p>Total Losses: <%= @team.get_losses_count() %></p>
+      <p>Goals Scored: <%= @team.get_total_goals_scored() %></p>
+      <p>Goals Conceded: <%= @team.get_total_goals_conceded() %></p>
+    </span>
+  </div>
 
-<hr>
-
-<div class="goal-data">
-  <p>Scored goals against <% opponent_team = @team.get_opponent_scored_against_most %><%= opponent_team.name  %> the most.</p>
-  <p>Goals scored against other teams:</p>
-  <% for opponent in @teams %>
-    <% if opponent.id != @team.id %>
-      <p><%= opponent.name %> : <%= @team.get_total_goals_scored_against(opponent) %></p>
-    <% end %>
-  <% end %>
   <hr>
-  <p>Conceded goals against <% opponent_team = @team.get_opponent_conceded_against_most %><%= opponent_team.name  %> the most.</p>
-  <p>Goals Conceded Against Opponents:</p>
-  <% for opponent in @teams %>
-    <% if opponent.id != @team.id %>
-      <p><%= opponent.name %> : <%= @team.get_total_goals_conceded_against(opponent) %></p>
-    <% end %>
-  <% end %>
-</div>
 
-<hr>
-
-<div class="game-data">
-  <p><%= @team.name %> won against <% opponent_team = @team.get_opponent_won_against_most %><%= opponent_team.name  %> the most.</p>
-  <p>Wins Against Opponents:</p>
-  <% for opponent in @teams %>
-    <% if opponent.id != @team.id %>
-      <p><%= opponent.name %> : <%= @team.get_wins_against_opponent(opponent) %></p>
+  <div class="goal-data">
+    <p><span>Scored goals against <% opponent_team = @team.get_opponent_scored_against_most %><%= opponent_team.name  %> the most.</span></p>
+    <p>Goals scored against other teams:</p>
+    <% for opponent in @teams %>
+      <% if opponent.id != @team.id %>
+        <p><%= opponent.name %> : <%= @team.get_total_goals_scored_against(opponent) %></p>
+      <% end %>
     <% end %>
-  <% end %>
+    <hr>
+    <p><span>Conceded goals against <% opponent_team = @team.get_opponent_conceded_against_most %><%= opponent_team.name  %> the most.</span></p>
+    <p>Goals Conceded Against Opponents:</p>
+    <% for opponent in @teams %>
+      <% if opponent.id != @team.id %>
+        <p><%= opponent.name %> : <%= @team.get_total_goals_conceded_against(opponent) %></p>
+      <% end %>
+    <% end %>
+  </div>
+
   <hr>
-  <p><%= @team.name %> lost against <% opponent_team = @team.get_opponent_lost_against_most %><%= opponent_team.name  %> the most.</p>
-  <p>Losses Against Opponents:</p>
-  <% for opponent in @teams %>
-    <% if opponent.id != @team.id %>
-      <p><%= opponent.name %> : <%= @team.get_losses_against_opponent(opponent) %></p>
+
+  <div class="game-data">
+    <p><span><%= @team.name %> won against <% opponent_team = @team.get_opponent_won_against_most %><%= opponent_team.name  %> the most.</span></p>
+    <p>Wins Against Opponents:</p>
+    <% for opponent in @teams %>
+      <% if opponent.id != @team.id %>
+        <p><%= opponent.name %> : <%= @team.get_wins_against_opponent(opponent) %></p>
+      <% end %>
     <% end %>
-  <% end %>
+    <hr>
+    <p><span><%= @team.name %> lost against <% opponent_team = @team.get_opponent_lost_against_most %><%= opponent_team.name  %> the most.</span></p>
+    <p>Losses Against Opponents:</p>
+    <% for opponent in @teams %>
+      <% if opponent.id != @team.id %>
+        <p><%= opponent.name %> : <%= @team.get_losses_against_opponent(opponent) %></p>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <hr>
 
 <div class="list-games">
-  <p>All Games Played:</p>
+  <p><span>All Games Played:</span></p>
   <% for game in @team.games() %>
     <% if game.team1_id || game.team2_id == @team.id %>
       <p><a href="/games/<%= game.id %>"><%= game.team1().name %> VS <%= game.team2().name %></a></p>

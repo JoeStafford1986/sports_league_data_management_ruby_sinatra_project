@@ -5,9 +5,23 @@
 <hr>
 
 <div class="league-table">
-  <% for team in @sorted_teams_wins_then_goals %>
-    <p>Position <%= @sorted_teams_wins_then_goals.find_index(team) + 1 %> : <a href="/teams/<%= team.id  %>"><%= team.name %></a> <%= team.get_wins_count() %>pt(s) <%= team.get_goal_difference() %>gd</p>
-  <% end %>
+  <table>
+    <tr>
+      <th>Tournament Position</th>
+      <th>Team Name</th>
+      <th>Points</th>
+      <th>Goal Difference</th>
+    </tr>
+
+    <% for team in @sorted_teams_wins_then_goals %>
+    <tr>
+      <td><%= @sorted_teams_wins_then_goals.find_index(team) + 1 %></td>
+      <td><a href="/teams/<%= team.id  %>" style="text-decoration: none"><%= team.name %></a></td>
+      <td><%= team.get_wins_count() %></td>
+      <td><%= team.get_goal_difference() %></td>
+    </tr>
+    <% end %>
+  </table>
 </div>
 
 <hr>

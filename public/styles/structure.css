@@ -1,7 +1,15 @@
 body {
-  background-image: url('/images/outer_background.jpeg');
+  background-image: url('/images/outer_background1.jpg');
   background-size: cover;
   background-attachment: fixed;
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.add-item form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .inner-background {
@@ -10,116 +18,65 @@ body {
   background-image: url('/images/inner_background.jpg');
 }
 
-ul {
+.game-details {
   display: flex;
-  flex-direction: row;
-  list-style-type: none;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* li {
-  text-decoration: none;
+span {
+  text-decoration: bold;
+  font-size: 25px;
 }
 
-a {
-  text-decoration: none;
-} */
+form {
+  font-size: 15px;
+  justify-content: center;
+}
+
+table {
+  display: flex;
+  justify-content: space-around;
+}
+
+td {
+  text-align: center;
+  margin: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
 
 nav {
-  padding: 10px;
-  border: solid 5px red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   text-align: center;
 }
 
 h1 {
-  padding: 10px;
-  border: solid 5px red;
+  text-align: center;
 }
 
 h2 {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-h3 {
-  padding: 10px;
-  border: solid 5px red;
+  text-align: center;
 }
 
 .top-section-navigation {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.edit {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input[type=submit], input[type=date] {
-  max-width: 150px;
-}
-
-.error {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.new-item-button {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.new-item-header {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.add-item {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.index-item {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.game-details {
-  padding: 10px;
-  border: solid 5px red;
+  align-items: center;
 }
 
 .league_standing {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.league-table {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.team-details {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.goal-data {
-  padding: 10px;
-  border: solid 5px red;
-}
-
-.game-data {
-  padding: 10px;
-  border: solid 5px red;
+  text-align: center;
 }
 
 .list-games {
-  padding: 10px;
-  border: solid 5px red;
+  text-align: center;
+}
+
+.index-item {
+  text-align: center;
+}
+
+.team-show {
+  text-align: center;
 }

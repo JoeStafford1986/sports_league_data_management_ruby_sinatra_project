@@ -4,7 +4,7 @@ require('pry')
 class Game
 
   attr_reader( :id )
-  attr_accessor( :team1_id, :team2_id, :outcome, :team1_score, :team2_score, :date_of_game )
+  attr_accessor( :team1_id, :team2_id, :team1_score, :team2_score, :date_of_game )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
