@@ -1,19 +1,125 @@
 body {
-  background-image: url('/images/parchment.jpg');
+  background-image: url('/images/outer_background.jpeg');
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+.inner-background {
+  width: 80%;
+  margin: 0 auto;
+  background-image: url('/images/inner_background.jpg');
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+/* li {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+} */
+
 nav {
-  /* background-image: url('/images/banner.jpeg'); */
+  padding: 10px;
+  border: solid 5px red;
+  text-align: center;
+}
+
+h1 {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+h2 {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+h3 {
+  padding: 10px;
+  border: solid 5px red;
 }
 
 .top-section-navigation {
-
+  padding: 10px;
+  border: solid 5px red;
 }
 
 .edit {
+  padding: 10px;
+  border: solid 5px red;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type=submit], input[type=date] {
+  max-width: 150px;
 }
 
 .error {
+  padding: 10px;
+  border: solid 5px red;
+}
 
+.new-item-button {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.new-item-header {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.add-item {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.index-item {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.game-details {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.league_standing {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.league-table {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.team-details {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.goal-data {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.game-data {
+  padding: 10px;
+  border: solid 5px red;
+}
+
+.list-games {
+  padding: 10px;
+  border: solid 5px red;
 }

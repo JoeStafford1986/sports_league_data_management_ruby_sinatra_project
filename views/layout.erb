@@ -6,19 +6,22 @@
     <title>Bloodbowl League</title>
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/games">Games</a>
-        </li>
-        <li>
-          <a href="/teams">Teams</a>
-        </li>
-      </ul>
-    </nav>
-    <%= yield  %>
+    <div class="inner-background">
+      <nav>
+        <ul>
+          <li>
+            <a href="/" style="text-decoration: none">Home</a>
+          </li>
+          <li>
+            <a href="/games" style="text-decoration: none">Games</a>
+          </li>
+          <li>
+            <a href="/teams" style="text-decoration: none">Teams</a>
+          </li>
+        </ul>
+      </nav>
+      <h1>Bloodbowl Tournament Tracker</h1>
+      <%= yield  %>
+    </div>
   </body>
 </html>
