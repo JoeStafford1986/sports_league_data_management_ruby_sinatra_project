@@ -18,9 +18,12 @@ end
 
 #add new game
 post '/games' do
-  @game = Game.new(params)
-  @game.save()
-  redirect '/games'
+  game = Game.new(params)
+  if game.team1_score != game.team2_score
+    game.save()
+    redirect '/games'
+  end
+  erb(:"games/error")
 end
 
 #show singular game
@@ -44,7 +47,7 @@ post '/games/:id/edit' do
     game.update()
     redirect '/games'
   end
-  redirect '/games'
+  erb(:"games/error")
 end
 
 #deletes game
