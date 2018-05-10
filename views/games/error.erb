@@ -1,0 +1,16 @@
+<div class="top-section-navigation">
+  <h2>Game: <%= @game.team1().name %> VS <%= @game.team2().name %> <%= @message %></h2>
+  <form action="/games/<%= @game.id %>/delete" method="post">
+    <input type="checkbox" name="confirmation" value="Delete Game" required="required">
+    <input type="submit" name="Delete" value="Delete Game">
+  </form>
+  <a href="/games/<%= @game.id %>/edit">Edit Game</a>
+</div>
+
+<hr>
+
+<div class="error">
+  <p>Teams cannot draw in bloodbowl</p>
+</div>
+
+<hr>

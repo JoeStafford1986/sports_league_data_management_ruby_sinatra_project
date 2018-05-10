@@ -18,9 +18,10 @@ end
 
 #add new game
 post '/games' do
-  game = Game.new(params)
-  if game.team1_score != game.team2_score
-    game.save()
+  @message = ": Unable to Add"
+  @game = Game.new(params)
+  if @game.team1_score != @game.team2_score
+    @game.save()
     redirect '/games'
   end
   erb(:"games/error")
@@ -42,9 +43,10 @@ end
 
 #run update on edited game
 post '/games/:id/edit' do
-  game = Game.new(params)
-  if game.team1_score != game.team2_score
-    game.update()
+  @message = ": Unable to Edit"
+  @game = Game.new(params)
+  if @game.team1_score != @game.team2_score
+    @game.update()
     redirect '/games'
   end
   erb(:"games/error")
