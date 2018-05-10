@@ -157,6 +157,7 @@ class Team
     games = Game.all()
     for game in games
       winner = game.get_winner()
+      # binding.pry
       if @id == winner.id
         total_wins += 1
       end
