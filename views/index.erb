@@ -1,6 +1,11 @@
-<h1>Welcome to the Bloodbowl League Tracker</h1>
+<h1>Bloodbowl League Tracker</h1>
 
-<% for team in @sorted_teams_wins_then_goals %>
-  <p>Sorted_Position <%= @sorted_teams_wins_then_goals.find_index(team) + 1 %> : <a href="/teams/<%= team.id  %>"><%= team.name %></p></a>
-  <hr/>
-<%end  %>
+<hr>
+
+<div class="league-table">
+  <% for team in @sorted_teams_wins_then_goals %>
+    <p>Position <%= @sorted_teams_wins_then_goals.find_index(team) + 1 %> : <a href="/teams/<%= team.id  %>"><%= team.name %></a> <%= team.get_wins_count() %>pt(s) <%= team.get_goal_difference() %>gd</p>
+  <% end %>
+</div>
+
+<hr>
